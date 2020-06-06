@@ -1,9 +1,5 @@
 def merge_sorted_arrays(a_1, a_2):
     n_1, n_2 = len(a_1), len(a_2)
-    if n_1 == 0:
-        return a_2
-    elif n_2 == 0:
-        return a_1
     idx_1, idx_2 = 0, 0
     merged = []
     while idx_1 < n_1 and idx_2 < n_2:
