@@ -14,14 +14,11 @@ def find_first_non_repeating_int(l):
 
 
 if __name__ == "__main__":
-    a = [1, 1, 2, 2]
-    b = [1]
-    c = [1, 1]
-    d = [1, 2, 1]
-    e = []
+    test = [[1, 1, 2, 2],
+            [1],
+            [1, 1],
+            [1, 2, 1],
+            []]
 
-    print(find_first_non_repeating_int(a))
-    print(find_first_non_repeating_int(b))
-    print(find_first_non_repeating_int(c))
-    print(find_first_non_repeating_int(d))
-    print(find_first_non_repeating_int(e))
+    for l in test:
+        print(f"{str(l)}: {find_first_non_repeating_int(l)}")
