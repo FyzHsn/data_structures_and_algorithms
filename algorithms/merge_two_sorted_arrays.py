@@ -1,4 +1,6 @@
 def merge_sorted_arrays(a_1, a_2):
+    """Time Complexity: O(m + n), Auxilary Space Complexity: O(m + n)"""
+
     n_1, n_2 = len(a_1), len(a_2)
     idx_1, idx_2 = 0, 0
     merged = []
