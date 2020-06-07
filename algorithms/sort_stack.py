@@ -10,6 +10,7 @@ def insert_at_bottom(s, element):
         s.append(top)
     return
 
+
 def sort_stack(s):
     """Time Complexity: O(n^2), Auxilary Space Complexity: O(n)"""
 
@@ -19,8 +20,6 @@ def sort_stack(s):
     sort_stack(s)
     insert_at_bottom(s, top)
     return s
-
-    
 
 
 if __name__ == "__main__":
