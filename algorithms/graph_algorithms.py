@@ -141,6 +141,42 @@ def is_graph_tree(graph):
         return True    
 
 
+def find_disjoint_nodes(graph):
+    "Time Complexity: O(???), Auxiliary Space Complexity: O(???)"""
+
+    sets_by_element_dict = {}
+    
+    def make_new_set_for(x, y):
+        sets_by_element_dict[x] = sets_by_element_dict[y] = set({x, y})
+
+    def add_element_to_set(s, e):
+        s.add(e)
+        sets_by_element_dict[e] = s
+
+    def merge_sets(s_1, s_2):
+        merged_set = s_1.union(s_2)
+        for e in merged_set:
+            sets_by_element_dict[e] = merged_set
+
+    for node_1 in graph:
+        for node_2 in graph[node_1]:
+            node_1_set = sets_by_element_dict.get(node_1)
+            node_2_set = sets_by_element_dict.get(node_2)
+
+            if node_1_set is None and node_2_set is None:
+                make_new_set_for(node_1, node_2)
+
+            if node_1_set is None and node_2_set is not None:
+                add_element_to_set(node_2_set, node_1)
+
+            if node_1_set is not None and node_2_set is None:
+                add_element_to_set(node_1_set, node_2)
+
+            if node_1_set is not None and node_2_set is not None and node_1_set != node_2_set:
+                merge_sets(node_1_set, node_2_set)
+    return  set(tuple(s) for s in sets_by_element_dict.values())
+
+
 if __name__ == "__main__":
     g = { "a" : ["c"],
       "b" : ["c","e","f"],
@@ -168,7 +204,11 @@ if __name__ == "__main__":
     print(is_graph_acyclic(t))
 
     c = {"a": ["b"],
-         "b": ["c"],
-         "c": ["a"],
-         "e": ["f"]}
+         "b": ["a", "c"],
+         "c": ["a", "b"],
+         "e": ["f"],
+         "f": ["e"],
+        }
     print(is_graph_acyclic(c))
+    print(find_disjoint_nodes(c))
+    print(find_disjoint_nodes(g))
