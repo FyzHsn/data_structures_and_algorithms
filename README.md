@@ -14,8 +14,8 @@ This repository contains implementations of the fundamentals of data structures 
 * Trees
 	- Binary sort trees
 	- Fenwick trees (X)
-	- AVL trees
-	- Red-black trees
+	- AVL trees (X)
+	- Red-black trees (X)
 * Tries
 * Hash Maps
 
@@ -29,7 +29,9 @@ This repository contains implementations of the fundamentals of data structures 
 * Graph based algorithms
 	- Breadth first search 
 	- Depth first search
+ 	- Disjoint graph finding 
 	- Minimum spanning tree (X)
 	- Dijkstra (X)
 	- a* (X)
 
+(X) - Have not added yet!
